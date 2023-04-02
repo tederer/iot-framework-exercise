@@ -1,0 +1,430 @@
+[
+    {
+        "id": "7769cb8029a7e44a",
+        "type": "tab",
+        "label": "AccessControl",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "d5cf445f0a8a62f2",
+        "type": "mqtt out",
+        "z": "7769cb8029a7e44a",
+        "name": "",
+        "topic": "/accessControl/granted",
+        "qos": "1",
+        "retain": "true",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "03f3f3ac2d21cb66",
+        "x": 1610,
+        "y": 180,
+        "wires": []
+    },
+    {
+        "id": "1a3229b529a398cf",
+        "type": "mqtt in",
+        "z": "7769cb8029a7e44a",
+        "name": "",
+        "topic": "/accessControl/buttonPressed",
+        "qos": "1",
+        "datatype": "utf8",
+        "broker": "03f3f3ac2d21cb66",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 140,
+        "y": 340,
+        "wires": [
+            [
+                "533a50994af8981a"
+            ]
+        ]
+    },
+    {
+        "id": "64cbc0d28309d3a7",
+        "type": "function",
+        "z": "7769cb8029a7e44a",
+        "name": "append input to pin",
+        "func": "flow.set('pin', flow.get('pin') + JSON.parse(msg.payload).value);\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 850,
+        "y": 500,
+        "wires": [
+            [
+                "dc5fa3e2f275156a"
+            ]
+        ]
+    },
+    {
+        "id": "872e2e5d54078ae6",
+        "type": "function",
+        "z": "7769cb8029a7e44a",
+        "name": "",
+        "func": "\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "// Code added here will be run once\n// whenever the node is started.\n\nflow.set('pin', '');",
+        "finalize": "",
+        "libs": [],
+        "x": 200,
+        "y": 520,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "dc5fa3e2f275156a",
+        "type": "function",
+        "z": "7769cb8029a7e44a",
+        "name": "create payload",
+        "func": "var message = {pin: flow.get('pin')};\nmsg.payload = JSON.stringify(message);\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1060,
+        "y": 500,
+        "wires": [
+            [
+                "1f338df2f6b0cbf0"
+            ]
+        ]
+    },
+    {
+        "id": "533a50994af8981a",
+        "type": "function",
+        "z": "7769cb8029a7e44a",
+        "name": "extract button value",
+        "func": "msg.buttonValue = JSON.parse(msg.payload).value;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 370,
+        "y": 340,
+        "wires": [
+            [
+                "1ef9627c97389a69"
+            ]
+        ]
+    },
+    {
+        "id": "1ef9627c97389a69",
+        "type": "switch",
+        "z": "7769cb8029a7e44a",
+        "name": "button type switch",
+        "property": "buttonValue",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "ok",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "cancel",
+                "vt": "str"
+            },
+            {
+                "t": "nempty"
+            }
+        ],
+        "checkall": "false",
+        "repair": false,
+        "outputs": 3,
+        "x": 610,
+        "y": 300,
+        "wires": [
+            [
+                "e42e0e9bf0ae4b3d"
+            ],
+            [
+                "a783c2bd05fae855"
+            ],
+            [
+                "64cbc0d28309d3a7"
+            ]
+        ]
+    },
+    {
+        "id": "e42e0e9bf0ae4b3d",
+        "type": "switch",
+        "z": "7769cb8029a7e44a",
+        "name": "check pin",
+        "property": "pin",
+        "propertyType": "flow",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "12345",
+                "vt": "str"
+            },
+            {
+                "t": "neq",
+                "v": "12345",
+                "vt": "str"
+            }
+        ],
+        "checkall": "false",
+        "repair": false,
+        "outputs": 2,
+        "x": 820,
+        "y": 180,
+        "wires": [
+            [
+                "fceb20d0763e5a8b"
+            ],
+            [
+                "1a4b70f70e016f17"
+            ]
+        ]
+    },
+    {
+        "id": "fceb20d0763e5a8b",
+        "type": "change",
+        "z": "7769cb8029a7e44a",
+        "name": "granted",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "{\"granted\" : true}",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 980,
+        "y": 160,
+        "wires": [
+            [
+                "4c8831eca8476151",
+                "4429c80b6ee58e11"
+            ]
+        ]
+    },
+    {
+        "id": "1a4b70f70e016f17",
+        "type": "change",
+        "z": "7769cb8029a7e44a",
+        "name": "denied",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "{\"granted\" : false}",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 970,
+        "y": 200,
+        "wires": [
+            [
+                "4429c80b6ee58e11",
+                "086a929fcfae4c51"
+            ]
+        ]
+    },
+    {
+        "id": "4c8831eca8476151",
+        "type": "delay",
+        "z": "7769cb8029a7e44a",
+        "name": "",
+        "pauseType": "delay",
+        "timeout": "5",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 1160,
+        "y": 100,
+        "wires": [
+            [
+                "a1af0ba844ede522",
+                "086a929fcfae4c51"
+            ]
+        ]
+    },
+    {
+        "id": "a1af0ba844ede522",
+        "type": "change",
+        "z": "7769cb8029a7e44a",
+        "name": "denied",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "{\"granted\" : false}",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1310,
+        "y": 100,
+        "wires": [
+            [
+                "d5cf445f0a8a62f2"
+            ]
+        ]
+    },
+    {
+        "id": "1f338df2f6b0cbf0",
+        "type": "mqtt out",
+        "z": "7769cb8029a7e44a",
+        "name": "",
+        "topic": "/accessControl/enteredPin",
+        "qos": "1",
+        "retain": "true",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "03f3f3ac2d21cb66",
+        "x": 1620,
+        "y": 420,
+        "wires": []
+    },
+    {
+        "id": "086a929fcfae4c51",
+        "type": "change",
+        "z": "7769cb8029a7e44a",
+        "name": "reset pin on UI",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "{\"pin\": \"\"}",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1360,
+        "y": 280,
+        "wires": [
+            [
+                "1f338df2f6b0cbf0"
+            ]
+        ]
+    },
+    {
+        "id": "4429c80b6ee58e11",
+        "type": "change",
+        "z": "7769cb8029a7e44a",
+        "name": "clear PIN",
+        "rules": [
+            {
+                "t": "set",
+                "p": "pin",
+                "pt": "flow",
+                "to": "",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1320,
+        "y": 200,
+        "wires": [
+            [
+                "d5cf445f0a8a62f2"
+            ]
+        ]
+    },
+    {
+        "id": "a783c2bd05fae855",
+        "type": "change",
+        "z": "7769cb8029a7e44a",
+        "name": "clear PIN",
+        "rules": [
+            {
+                "t": "set",
+                "p": "pin",
+                "pt": "flow",
+                "to": "",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 860,
+        "y": 280,
+        "wires": [
+            [
+                "086a929fcfae4c51"
+            ]
+        ]
+    },
+    {
+        "id": "03f3f3ac2d21cb66",
+        "type": "mqtt-broker",
+        "name": "mqtt-broker",
+        "broker": "mqtt-broker",
+        "port": "1883",
+        "clientid": "",
+        "autoConnect": true,
+        "usetls": false,
+        "protocolVersion": "4",
+        "keepalive": "60",
+        "cleansession": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willPayload": "",
+        "willMsg": {},
+        "userProps": "",
+        "sessionExpiry": ""
+    }
+]

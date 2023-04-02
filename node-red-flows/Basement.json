@@ -1,0 +1,231 @@
+[
+    {
+        "id": "0c7fafa3d72c2cc1",
+        "type": "tab",
+        "label": "Basement",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "65d0e0e283c64f9d",
+        "type": "mqtt in",
+        "z": "0c7fafa3d72c2cc1",
+        "name": "",
+        "topic": "/basement/lightSwitchChanged",
+        "qos": "0",
+        "datatype": "auto",
+        "broker": "03f3f3ac2d21cb66",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 230,
+        "y": 160,
+        "wires": [
+            [
+                "ef4edc2bbab19f3d"
+            ]
+        ]
+    },
+    {
+        "id": "d2fc077e547551a4",
+        "type": "mqtt in",
+        "z": "0c7fafa3d72c2cc1",
+        "name": "",
+        "topic": "/basement/waterSensorChanged",
+        "qos": "0",
+        "datatype": "auto",
+        "broker": "03f3f3ac2d21cb66",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 230,
+        "y": 240,
+        "wires": [
+            [
+                "ef4edc2bbab19f3d"
+            ]
+        ]
+    },
+    {
+        "id": "ef4edc2bbab19f3d",
+        "type": "debug",
+        "z": "0c7fafa3d72c2cc1",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 490,
+        "y": 200,
+        "wires": []
+    },
+    {
+        "id": "235ac43b90b17b74",
+        "type": "inject",
+        "z": "0c7fafa3d72c2cc1",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "{\"on\": true}",
+        "payloadType": "str",
+        "x": 160,
+        "y": 340,
+        "wires": [
+            [
+                "728295bcd9842df7"
+            ]
+        ]
+    },
+    {
+        "id": "e2c36b9de1070ca1",
+        "type": "inject",
+        "z": "0c7fafa3d72c2cc1",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "{\"on\": false}",
+        "payloadType": "str",
+        "x": 170,
+        "y": 400,
+        "wires": [
+            [
+                "728295bcd9842df7"
+            ]
+        ]
+    },
+    {
+        "id": "728295bcd9842df7",
+        "type": "mqtt out",
+        "z": "0c7fafa3d72c2cc1",
+        "name": "",
+        "topic": "/basement/light",
+        "qos": "1",
+        "retain": "true",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "03f3f3ac2d21cb66",
+        "x": 400,
+        "y": 360,
+        "wires": []
+    },
+    {
+        "id": "329498822f6e8d52",
+        "type": "inject",
+        "z": "0c7fafa3d72c2cc1",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "{\"on\": true}",
+        "payloadType": "str",
+        "x": 160,
+        "y": 460,
+        "wires": [
+            [
+                "f2fe3c703313fd15"
+            ]
+        ]
+    },
+    {
+        "id": "17895776b8b94e50",
+        "type": "inject",
+        "z": "0c7fafa3d72c2cc1",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "{\"on\": false}",
+        "payloadType": "str",
+        "x": 170,
+        "y": 520,
+        "wires": [
+            [
+                "f2fe3c703313fd15"
+            ]
+        ]
+    },
+    {
+        "id": "f2fe3c703313fd15",
+        "type": "mqtt out",
+        "z": "0c7fafa3d72c2cc1",
+        "name": "",
+        "topic": "/basement/pump",
+        "qos": "1",
+        "retain": "true",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "03f3f3ac2d21cb66",
+        "x": 410,
+        "y": 480,
+        "wires": []
+    },
+    {
+        "id": "03f3f3ac2d21cb66",
+        "type": "mqtt-broker",
+        "name": "mqtt-broker",
+        "broker": "mqtt-broker",
+        "port": "1883",
+        "clientid": "",
+        "autoConnect": true,
+        "usetls": false,
+        "protocolVersion": "4",
+        "keepalive": "60",
+        "cleansession": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willPayload": "",
+        "willMsg": {},
+        "userProps": "",
+        "sessionExpiry": ""
+    }
+]

@@ -1,0 +1,268 @@
+[
+    {
+        "id": "2da46347247c649e",
+        "type": "tab",
+        "label": "Kitchen",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "1833ae9f4c5af0d8",
+        "type": "mqtt in",
+        "z": "2da46347247c649e",
+        "name": "",
+        "topic": "/kitchen/upSensorChanged",
+        "qos": "0",
+        "datatype": "auto",
+        "broker": "03f3f3ac2d21cb66",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 190,
+        "y": 180,
+        "wires": [
+            [
+                "9252f6a9802bcea8"
+            ]
+        ]
+    },
+    {
+        "id": "324b772ad86b574a",
+        "type": "mqtt in",
+        "z": "2da46347247c649e",
+        "name": "",
+        "topic": "/kitchen/downSensorChanged",
+        "qos": "0",
+        "datatype": "auto",
+        "broker": "03f3f3ac2d21cb66",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 200,
+        "y": 240,
+        "wires": [
+            [
+                "9252f6a9802bcea8"
+            ]
+        ]
+    },
+    {
+        "id": "4d4d7f01b20dbcfe",
+        "type": "mqtt in",
+        "z": "2da46347247c649e",
+        "name": "",
+        "topic": "/kitchen/switchPressed",
+        "qos": "0",
+        "datatype": "auto",
+        "broker": "03f3f3ac2d21cb66",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 180,
+        "y": 300,
+        "wires": [
+            [
+                "9252f6a9802bcea8"
+            ]
+        ]
+    },
+    {
+        "id": "9252f6a9802bcea8",
+        "type": "debug",
+        "z": "2da46347247c649e",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 470,
+        "y": 240,
+        "wires": []
+    },
+    {
+        "id": "e2151fb330f8ec7f",
+        "type": "inject",
+        "z": "2da46347247c649e",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "{\"on\": true}",
+        "payloadType": "str",
+        "x": 140,
+        "y": 380,
+        "wires": [
+            [
+                "509a4f0d38e01e68"
+            ]
+        ]
+    },
+    {
+        "id": "9fe26e9d54c3873c",
+        "type": "inject",
+        "z": "2da46347247c649e",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "{\"on\": false}",
+        "payloadType": "str",
+        "x": 150,
+        "y": 440,
+        "wires": [
+            [
+                "509a4f0d38e01e68"
+            ]
+        ]
+    },
+    {
+        "id": "344610b8f8f2e359",
+        "type": "inject",
+        "z": "2da46347247c649e",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "{\"on\": true}",
+        "payloadType": "str",
+        "x": 140,
+        "y": 520,
+        "wires": [
+            [
+                "78be4f6bd88bd697"
+            ]
+        ]
+    },
+    {
+        "id": "92e0152f87a843ad",
+        "type": "inject",
+        "z": "2da46347247c649e",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "{\"on\": false}",
+        "payloadType": "str",
+        "x": 150,
+        "y": 580,
+        "wires": [
+            [
+                "78be4f6bd88bd697"
+            ]
+        ]
+    },
+    {
+        "id": "509a4f0d38e01e68",
+        "type": "mqtt out",
+        "z": "2da46347247c649e",
+        "name": "",
+        "topic": "/kitchen/upMotor",
+        "qos": "2",
+        "retain": "true",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "03f3f3ac2d21cb66",
+        "x": 460,
+        "y": 400,
+        "wires": []
+    },
+    {
+        "id": "78be4f6bd88bd697",
+        "type": "mqtt out",
+        "z": "2da46347247c649e",
+        "name": "",
+        "topic": "/kitchen/downMotor",
+        "qos": "2",
+        "retain": "true",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "03f3f3ac2d21cb66",
+        "x": 470,
+        "y": 560,
+        "wires": []
+    },
+    {
+        "id": "03f3f3ac2d21cb66",
+        "type": "mqtt-broker",
+        "name": "mqtt-broker",
+        "broker": "mqtt-broker",
+        "port": "1883",
+        "clientid": "",
+        "autoConnect": true,
+        "usetls": false,
+        "protocolVersion": "4",
+        "keepalive": "60",
+        "cleansession": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willPayload": "",
+        "willMsg": {},
+        "userProps": "",
+        "sessionExpiry": ""
+    }
+]

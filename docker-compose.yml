@@ -1,0 +1,38 @@
+services:
+
+  mqtt-broker:
+    image: eclipse-mosquitto:2.0.15
+    container_name: mqtt-broker
+    ports:
+      - 1883:1883 # default port for MQTT
+    volumes:
+      - ./mqtt-broker/mosquitto.conf:/mosquitto/config/mosquitto.conf
+    networks:
+      - iot
+
+  node-red:
+    image: nodered/node-red:2.2.3-12
+    container_name: node-red
+    ports:
+      - 1880:1880 # port of the UI
+    volumes:
+      - ./node-red/data:/data
+    networks:
+      - iot
+
+  home-emulator:
+    image: tederer/home-emulator
+    container_name: home-emulator
+    environment:
+      - MQTT_BROKER_URL=mqtt://mqtt-broker
+    ports:
+      - 1881:8080 # port of the UI
+    volumes:
+      - ./node-red/data:/data
+    networks:
+      - iot
+
+networks:
+  iot:
+    name: iot
+    driver: bridge
