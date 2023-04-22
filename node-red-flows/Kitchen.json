@@ -1,6 +1,6 @@
 [
     {
-        "id": "2da46347247c649e",
+        "id": "b3db069c66ad587c",
         "type": "tab",
         "label": "Kitchen",
         "disabled": false,
@@ -8,204 +8,72 @@
         "env": []
     },
     {
-        "id": "1833ae9f4c5af0d8",
+        "id": "64afbc2989a78076",
         "type": "mqtt in",
-        "z": "2da46347247c649e",
+        "z": "b3db069c66ad587c",
         "name": "",
         "topic": "/kitchen/upSensorChanged",
         "qos": "0",
-        "datatype": "auto",
+        "datatype": "json",
         "broker": "03f3f3ac2d21cb66",
         "nl": false,
         "rap": true,
         "rh": 0,
         "inputs": 0,
-        "x": 190,
-        "y": 180,
+        "x": 140,
+        "y": 140,
         "wires": [
             [
-                "9252f6a9802bcea8"
+                "04562165992c8f53"
             ]
         ]
     },
     {
-        "id": "324b772ad86b574a",
+        "id": "efe96982e0d96d1e",
         "type": "mqtt in",
-        "z": "2da46347247c649e",
+        "z": "b3db069c66ad587c",
         "name": "",
         "topic": "/kitchen/downSensorChanged",
         "qos": "0",
-        "datatype": "auto",
+        "datatype": "json",
         "broker": "03f3f3ac2d21cb66",
         "nl": false,
         "rap": true,
         "rh": 0,
         "inputs": 0,
-        "x": 200,
-        "y": 240,
+        "x": 140,
+        "y": 280,
         "wires": [
             [
-                "9252f6a9802bcea8"
+                "04562165992c8f53"
             ]
         ]
     },
     {
-        "id": "4d4d7f01b20dbcfe",
+        "id": "f1d3b511646528b0",
         "type": "mqtt in",
-        "z": "2da46347247c649e",
+        "z": "b3db069c66ad587c",
         "name": "",
         "topic": "/kitchen/switchPressed",
         "qos": "0",
-        "datatype": "auto",
+        "datatype": "json",
         "broker": "03f3f3ac2d21cb66",
         "nl": false,
         "rap": true,
         "rh": 0,
         "inputs": 0,
-        "x": 180,
-        "y": 300,
+        "x": 120,
+        "y": 460,
         "wires": [
             [
-                "9252f6a9802bcea8"
+                "89ba2269102f2750"
             ]
         ]
     },
     {
-        "id": "9252f6a9802bcea8",
-        "type": "debug",
-        "z": "2da46347247c649e",
-        "name": "",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "false",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 470,
-        "y": 240,
-        "wires": []
-    },
-    {
-        "id": "e2151fb330f8ec7f",
-        "type": "inject",
-        "z": "2da46347247c649e",
-        "name": "",
-        "props": [
-            {
-                "p": "payload"
-            },
-            {
-                "p": "topic",
-                "vt": "str"
-            }
-        ],
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "topic": "",
-        "payload": "{\"on\": true}",
-        "payloadType": "str",
-        "x": 140,
-        "y": 380,
-        "wires": [
-            [
-                "509a4f0d38e01e68"
-            ]
-        ]
-    },
-    {
-        "id": "9fe26e9d54c3873c",
-        "type": "inject",
-        "z": "2da46347247c649e",
-        "name": "",
-        "props": [
-            {
-                "p": "payload"
-            },
-            {
-                "p": "topic",
-                "vt": "str"
-            }
-        ],
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "topic": "",
-        "payload": "{\"on\": false}",
-        "payloadType": "str",
-        "x": 150,
-        "y": 440,
-        "wires": [
-            [
-                "509a4f0d38e01e68"
-            ]
-        ]
-    },
-    {
-        "id": "344610b8f8f2e359",
-        "type": "inject",
-        "z": "2da46347247c649e",
-        "name": "",
-        "props": [
-            {
-                "p": "payload"
-            },
-            {
-                "p": "topic",
-                "vt": "str"
-            }
-        ],
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "topic": "",
-        "payload": "{\"on\": true}",
-        "payloadType": "str",
-        "x": 140,
-        "y": 520,
-        "wires": [
-            [
-                "78be4f6bd88bd697"
-            ]
-        ]
-    },
-    {
-        "id": "92e0152f87a843ad",
-        "type": "inject",
-        "z": "2da46347247c649e",
-        "name": "",
-        "props": [
-            {
-                "p": "payload"
-            },
-            {
-                "p": "topic",
-                "vt": "str"
-            }
-        ],
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "topic": "",
-        "payload": "{\"on\": false}",
-        "payloadType": "str",
-        "x": 150,
-        "y": 580,
-        "wires": [
-            [
-                "78be4f6bd88bd697"
-            ]
-        ]
-    },
-    {
-        "id": "509a4f0d38e01e68",
+        "id": "df8aca7dc2a2bb81",
         "type": "mqtt out",
-        "z": "2da46347247c649e",
+        "z": "b3db069c66ad587c",
         "name": "",
         "topic": "/kitchen/upMotor",
         "qos": "2",
@@ -216,14 +84,148 @@
         "correl": "",
         "expiry": "",
         "broker": "03f3f3ac2d21cb66",
-        "x": 460,
+        "x": 990,
         "y": 400,
         "wires": []
     },
     {
-        "id": "78be4f6bd88bd697",
+        "id": "04562165992c8f53",
+        "type": "function",
+        "z": "b3db069c66ad587c",
+        "name": "update state",
+        "func": "if(msg.topic === '/kitchen/downSensorChanged') {\n    flow.set('downSensorOn', msg.payload.value === 'on');\n}\nif (msg.topic === '/kitchen/upSensorChanged') {\n    flow.set('upSensorOn',   msg.payload.value === 'on');\n}\n\nmsg.payload = {\n    'downSensorOn':(flow.get('downSensorOn') !== undefined) ? flow.get('downSensorOn') : false,\n    'upSensorOn':  (flow.get('upSensorOn')   !== undefined) ? flow.get('upSensorOn')   : false,\n    'upMotorOn':   (flow.get('upMotorOn')    !== undefined) ? flow.get('upMotorOn')    : false,\n    'downMotorOn': (flow.get('downMotorOn')  !== undefined) ? flow.get('downMotorOn')  : false\n};\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 390,
+        "y": 200,
+        "wires": [
+            [
+                "ae9a8b627a32d726"
+            ]
+        ]
+    },
+    {
+        "id": "89ba2269102f2750",
+        "type": "function",
+        "z": "b3db069c66ad587c",
+        "name": "load state",
+        "func": "msg.payload = {\n    'downSensorOn':(flow.get('downSensorOn') !== undefined) ? flow.get('downSensorOn'): false,\n    'upSensorOn':  (flow.get('upSensorOn')   !== undefined) ? flow.get('upSensorOn')  : false,\n    'upMotorOn':   (flow.get('upMotorOn')    !== undefined) ? flow.get('upMotorOn')   : false,\n    'downMotorOn': (flow.get('downMotorOn')  !== undefined) ? flow.get('downMotorOn') : false,\n    'upPressed':   msg.payload.value === 'up',\n    'downPressed': msg.payload.value === 'down'\n};\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 340,
+        "y": 460,
+        "wires": [
+            [
+                "4d45b7908a4ec7fc",
+                "13343bbaf1fe2dba"
+            ]
+        ]
+    },
+    {
+        "id": "ae9a8b627a32d726",
+        "type": "function",
+        "z": "b3db069c66ad587c",
+        "name": "stop motor",
+        "func": "var upMotorOn    = msg.payload.upMotorOn;\nvar downMotorOn  = msg.payload.downMotorOn;\nvar upSensorOn   = msg.payload.upSensorOn;\nvar downSensorOn = msg.payload.downSensorOn;\n\nmsg.payload = undefined;\n\nif (upMotorOn && upSensorOn) {\n    msg.topic   = '/kitchen/upMotor',\n    msg.payload = {\"on\": false};\n}\n\nif (downMotorOn && downSensorOn) {\n    msg.topic   = '/kitchen/downMotor',\n    msg.payload = {\"on\": false};\n}\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 570,
+        "y": 200,
+        "wires": [
+            [
+                "9480444bb82f892d"
+            ]
+        ]
+    },
+    {
+        "id": "9480444bb82f892d",
+        "type": "switch",
+        "z": "b3db069c66ad587c",
+        "name": "",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "neq",
+                "v": "undefined",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 730,
+        "y": 200,
+        "wires": [
+            [
+                "ee3f837c74e5f389"
+            ]
+        ]
+    },
+    {
+        "id": "078bf16aebec9ffe",
         "type": "mqtt out",
-        "z": "2da46347247c649e",
+        "z": "b3db069c66ad587c",
+        "name": "",
+        "topic": "/kitchen/upMotor",
+        "qos": "2",
+        "retain": "true",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "03f3f3ac2d21cb66",
+        "x": 1070,
+        "y": 160,
+        "wires": []
+    },
+    {
+        "id": "ee3f837c74e5f389",
+        "type": "switch",
+        "z": "b3db069c66ad587c",
+        "name": "",
+        "property": "topic",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "/kitchen/upMotor",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "/kitchen/downMotor",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 870,
+        "y": 200,
+        "wires": [
+            [
+                "078bf16aebec9ffe"
+            ],
+            [
+                "52541ff3df379ebe"
+            ]
+        ]
+    },
+    {
+        "id": "52541ff3df379ebe",
+        "type": "mqtt out",
+        "z": "b3db069c66ad587c",
         "name": "",
         "topic": "/kitchen/downMotor",
         "qos": "2",
@@ -234,9 +236,123 @@
         "correl": "",
         "expiry": "",
         "broker": "03f3f3ac2d21cb66",
-        "x": 470,
-        "y": 560,
+        "x": 1070,
+        "y": 220,
         "wires": []
+    },
+    {
+        "id": "58029737cfaba173",
+        "type": "mqtt out",
+        "z": "b3db069c66ad587c",
+        "name": "",
+        "topic": "/kitchen/downMotor",
+        "qos": "2",
+        "retain": "true",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "03f3f3ac2d21cb66",
+        "x": 990,
+        "y": 520,
+        "wires": []
+    },
+    {
+        "id": "4d45b7908a4ec7fc",
+        "type": "function",
+        "z": "b3db069c66ad587c",
+        "name": "start up motor",
+        "func": "if (msg.payload.upPressed && !msg.payload.upSensorOn) {\n    msg.payload = {\"on\": true};\n    flow.set('upMotorOn', true);\n    return [msg, null];\n} else {\n    return [null, msg];\n}\n",
+        "outputs": 2,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 520,
+        "y": 400,
+        "wires": [
+            [
+                "af9a0d22d81bad38",
+                "df8aca7dc2a2bb81"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "13343bbaf1fe2dba",
+        "type": "function",
+        "z": "b3db069c66ad587c",
+        "name": "start down motor",
+        "func": "if (msg.payload.downPressed && !msg.payload.downSensorOn) {\n    msg.payload = {\"on\": true};\n    flow.set('downMotorOn', true);\n    return [msg, null];\n} else {\n    return [null, msg];\n}",
+        "outputs": 2,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 530,
+        "y": 520,
+        "wires": [
+            [
+                "d8229e042e479042",
+                "58029737cfaba173"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "af9a0d22d81bad38",
+        "type": "change",
+        "z": "b3db069c66ad587c",
+        "name": "turn off",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "{\"on\": false}",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 720,
+        "y": 440,
+        "wires": [
+            [
+                "58029737cfaba173"
+            ]
+        ]
+    },
+    {
+        "id": "d8229e042e479042",
+        "type": "change",
+        "z": "b3db069c66ad587c",
+        "name": "turn off",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "{\"on\": false}",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 720,
+        "y": 480,
+        "wires": [
+            [
+                "df8aca7dc2a2bb81"
+            ]
+        ]
     },
     {
         "id": "03f3f3ac2d21cb66",

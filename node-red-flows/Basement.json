@@ -1,6 +1,6 @@
 [
     {
-        "id": "0c7fafa3d72c2cc1",
+        "id": "b9687397a00b621b",
         "type": "tab",
         "label": "Basement",
         "disabled": false,
@@ -8,9 +8,9 @@
         "env": []
     },
     {
-        "id": "65d0e0e283c64f9d",
+        "id": "5415b094f8fa1caf",
         "type": "mqtt in",
-        "z": "0c7fafa3d72c2cc1",
+        "z": "b9687397a00b621b",
         "name": "",
         "topic": "/basement/lightSwitchChanged",
         "qos": "0",
@@ -20,173 +20,57 @@
         "rap": true,
         "rh": 0,
         "inputs": 0,
-        "x": 230,
-        "y": 160,
+        "x": 150,
+        "y": 240,
         "wires": [
             [
-                "ef4edc2bbab19f3d"
+                "2f898efb111df255"
             ]
         ]
     },
     {
-        "id": "d2fc077e547551a4",
+        "id": "39dc3e547e23226c",
         "type": "mqtt in",
-        "z": "0c7fafa3d72c2cc1",
+        "z": "b9687397a00b621b",
         "name": "",
         "topic": "/basement/waterSensorChanged",
         "qos": "0",
-        "datatype": "auto",
+        "datatype": "json",
         "broker": "03f3f3ac2d21cb66",
         "nl": false,
         "rap": true,
         "rh": 0,
         "inputs": 0,
-        "x": 230,
-        "y": 240,
+        "x": 150,
+        "y": 540,
         "wires": [
             [
-                "ef4edc2bbab19f3d"
+                "a3535c5efde9a50d"
             ]
         ]
     },
     {
-        "id": "ef4edc2bbab19f3d",
-        "type": "debug",
-        "z": "0c7fafa3d72c2cc1",
-        "name": "",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "false",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 490,
-        "y": 200,
-        "wires": []
-    },
-    {
-        "id": "235ac43b90b17b74",
-        "type": "inject",
-        "z": "0c7fafa3d72c2cc1",
-        "name": "",
-        "props": [
-            {
-                "p": "payload"
-            }
-        ],
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "topic": "",
-        "payload": "{\"on\": true}",
-        "payloadType": "str",
-        "x": 160,
-        "y": 340,
-        "wires": [
-            [
-                "728295bcd9842df7"
-            ]
-        ]
-    },
-    {
-        "id": "e2c36b9de1070ca1",
-        "type": "inject",
-        "z": "0c7fafa3d72c2cc1",
-        "name": "",
-        "props": [
-            {
-                "p": "payload"
-            }
-        ],
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "topic": "",
-        "payload": "{\"on\": false}",
-        "payloadType": "str",
-        "x": 170,
-        "y": 400,
-        "wires": [
-            [
-                "728295bcd9842df7"
-            ]
-        ]
-    },
-    {
-        "id": "728295bcd9842df7",
+        "id": "2735bc3e78cedb56",
         "type": "mqtt out",
-        "z": "0c7fafa3d72c2cc1",
+        "z": "b9687397a00b621b",
         "name": "",
         "topic": "/basement/light",
         "qos": "1",
-        "retain": "true",
+        "retain": "false",
         "respTopic": "",
         "contentType": "",
         "userProps": "",
         "correl": "",
         "expiry": "",
         "broker": "03f3f3ac2d21cb66",
-        "x": 400,
-        "y": 360,
+        "x": 940,
+        "y": 240,
         "wires": []
     },
     {
-        "id": "329498822f6e8d52",
-        "type": "inject",
-        "z": "0c7fafa3d72c2cc1",
-        "name": "",
-        "props": [
-            {
-                "p": "payload"
-            }
-        ],
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "topic": "",
-        "payload": "{\"on\": true}",
-        "payloadType": "str",
-        "x": 160,
-        "y": 460,
-        "wires": [
-            [
-                "f2fe3c703313fd15"
-            ]
-        ]
-    },
-    {
-        "id": "17895776b8b94e50",
-        "type": "inject",
-        "z": "0c7fafa3d72c2cc1",
-        "name": "",
-        "props": [
-            {
-                "p": "payload"
-            }
-        ],
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "topic": "",
-        "payload": "{\"on\": false}",
-        "payloadType": "str",
-        "x": 170,
-        "y": 520,
-        "wires": [
-            [
-                "f2fe3c703313fd15"
-            ]
-        ]
-    },
-    {
-        "id": "f2fe3c703313fd15",
+        "id": "2de08e2a2318f2ce",
         "type": "mqtt out",
-        "z": "0c7fafa3d72c2cc1",
+        "z": "b9687397a00b621b",
         "name": "",
         "topic": "/basement/pump",
         "qos": "1",
@@ -197,9 +81,229 @@
         "correl": "",
         "expiry": "",
         "broker": "03f3f3ac2d21cb66",
-        "x": 410,
-        "y": 480,
+        "x": 930,
+        "y": 540,
         "wires": []
+    },
+    {
+        "id": "421eca807cffd2f0",
+        "type": "switch",
+        "z": "b9687397a00b621b",
+        "name": "",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "odd",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "even",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 530,
+        "y": 240,
+        "wires": [
+            [
+                "962c1a3458ba839e"
+            ],
+            [
+                "d1d395c8b13a0192"
+            ]
+        ],
+        "outputLabels": [
+            "light on",
+            "light off"
+        ]
+    },
+    {
+        "id": "962c1a3458ba839e",
+        "type": "change",
+        "z": "b9687397a00b621b",
+        "name": "light on",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "{\"on\": true}",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 700,
+        "y": 220,
+        "wires": [
+            [
+                "2735bc3e78cedb56"
+            ]
+        ]
+    },
+    {
+        "id": "d1d395c8b13a0192",
+        "type": "change",
+        "z": "b9687397a00b621b",
+        "name": "light off",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "{\"on\": false}",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 700,
+        "y": 280,
+        "wires": [
+            [
+                "2735bc3e78cedb56"
+            ]
+        ]
+    },
+    {
+        "id": "2f898efb111df255",
+        "type": "function",
+        "z": "b9687397a00b621b",
+        "name": "Counter",
+        "func": "//define variable and get stored flow value\n// if there is no stored value, then the value is 0\n//define variable for division\nvar counter = flow.get(\"counter\") || 0\nvar division\n\n//add 1 to the counter value\ncounter ++\n\n// save the counter value in the flow variable\nflow.set(\"counter\", counter)\n\n// try to divide\nif (counter % 2 === 0) {\n    division = \"even\";\n} else {\n    division = \"odd\";\n}\n\n// set msg.payload to divison value\nmsg.payload = division\n\n// return the message object\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 380,
+        "y": 240,
+        "wires": [
+            [
+                "421eca807cffd2f0"
+            ]
+        ]
+    },
+    {
+        "id": "3711a68bae646c15",
+        "type": "switch",
+        "z": "b9687397a00b621b",
+        "name": "",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "1",
+                "vt": "num"
+            },
+            {
+                "t": "eq",
+                "v": "0",
+                "vt": "num"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 530,
+        "y": 540,
+        "wires": [
+            [
+                "c2eaa1fcb407ba94"
+            ],
+            [
+                "dbc101975d554616"
+            ]
+        ],
+        "outputLabels": [
+            "light on",
+            "light off"
+        ]
+    },
+    {
+        "id": "c2eaa1fcb407ba94",
+        "type": "change",
+        "z": "b9687397a00b621b",
+        "name": "pump on",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "{\"on\": true}",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 700,
+        "y": 520,
+        "wires": [
+            [
+                "2de08e2a2318f2ce"
+            ]
+        ]
+    },
+    {
+        "id": "dbc101975d554616",
+        "type": "change",
+        "z": "b9687397a00b621b",
+        "name": "pump off",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "{\"on\": false}",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 700,
+        "y": 580,
+        "wires": [
+            [
+                "2de08e2a2318f2ce"
+            ]
+        ]
+    },
+    {
+        "id": "a3535c5efde9a50d",
+        "type": "function",
+        "z": "b9687397a00b621b",
+        "name": "",
+        "func": "let SENSOR_HIGH = 'sensorHigh';\nlet SENSOR_LOW  = 'sensorLow';\nlet PUMP_ON     = 'pumpOn';\n\nvar updateValue = function updateValue(name) {\n    var value = msg.payload.value === 'on';\n    context.set(name, value);\n    return value;\n}\n\nvar getContextValue = function getContextValue(name) {\n    var value = context.get(name);\n    return (value === undefined) ? false : value;\n}\n\nlet untererSensor = getContextValue(SENSOR_LOW);\nlet obererSensor  = getContextValue(SENSOR_HIGH);\nlet pumpeLaeuft   = getContextValue(PUMP_ON);\nlet sensorId      = msg.payload.sensor;\n\nif (sensorId === SENSOR_LOW) {\n  untererSensor = updateValue(SENSOR_LOW);\n}\nif (sensorId === SENSOR_HIGH) {\n  obererSensor = updateValue(SENSOR_HIGH);\n}\n\npumpeLaeuft = obererSensor || (pumpeLaeuft && untererSensor);\ncontext.set(PUMP_ON, pumpeLaeuft);\n\nmsg.payload = pumpeLaeuft ? 1 : 0;\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 380,
+        "y": 540,
+        "wires": [
+            [
+                "3711a68bae646c15"
+            ]
+        ]
     },
     {
         "id": "03f3f3ac2d21cb66",
